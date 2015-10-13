@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="DonutsApp">
+<head>
+  <meta charset="UTF-8">
+  <title>Donuts!</title>
+  <link rel="stylesheet" href="css/donuts.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.0/angular.min.js"></script>
+    <script src="js/app.js" charset="utf-8"></script>
+    <script src="js/donutsController.js" charset="utf-8"></script>
+</head>
+<body>
+  
+  <section ng-controller="DonutsController as donuts">
+    
+    <h1>Donuts FTW!</h1>
+
+    <ul id="donuts">
+      <li ng-repeat="donut in donuts.all">
+        <strong>{{donut.style}}</strong> <em>{{donut.flavor}}</em>
+      </li>
+    </ul>
+
+    <form class="add-donut" ng-submit='donuts.addDonut()'>
+      <div>
+        <label for="new-donut-style">Donut Style</label>
+        <input type="text" id="new-donut-style" placeholder="Style" ng-model='donuts.newDonut.style'>
+      </div>
+
+      <div>
+        <label for="new-donut-flavor">Donut Flavour</label>
+        <input type="text" id="new-donut-flavor" placeholder="Flavor" ng-model='donuts.newDonut.flavor'>
+      </div>
+
+      <div>
+        <input type="submit" value="Add Donut">
+      </div>
+    </form>
+
+  </section>
+
+</body>
+</html>
