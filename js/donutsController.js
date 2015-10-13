@@ -35,12 +35,17 @@ angular.module('DonutsApp', [])
     self.newDonut = {};
   }
 
+    self.delete = deleteDonut
+
+    var deleteId
+
     function deleteDonut(id){
+      deleteId = id
       $http
       .delete('http://api.doughnuts.ga/doughnuts/' + id)
       .then(function(response) {
         console.log(response);
-        
+        self.all.splice(deleteId, 1)
         // self.all.push(response.data)
       });
 
